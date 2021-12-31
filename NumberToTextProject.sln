@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberToTextProject", "NumberToTextProject\NumberToTextProject.csproj", "{80882127-D099-4206-AC43-50BE140ED113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80882127-D099-4206-AC43-50BE140ED113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80882127-D099-4206-AC43-50BE140ED113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80882127-D099-4206-AC43-50BE140ED113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80882127-D099-4206-AC43-50BE140ED113}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FFF1514-B92E-4871-9947-39B085AF9D16}
+	EndGlobalSection
+EndGlobal
