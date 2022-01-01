@@ -2,33 +2,43 @@
 
 namespace NumberToTextProject
 {
-    internal class Program
+    public static class Program
     {
         private static void Main(string[] args)
         {
+            var inputNumber = GetInputText();
+            NumberToText numberToText = new NumberToText();
+            //numberToText.CreateTextFromInputNumber(inputNumber);
+
+            var threeChar = inputNumber.ToCharArray();
+
+            var finalText = numberToText.MatchDigitsToWriteConsole(threeChar);
+            Console.WriteLine("{0}", finalText);
             GetInputText();
+            Console.ReadLine();
         }
 
-        private static void GetInputText()
+        private static string GetInputText()
         {
             string inputNumber = "";
             inputNumber = Console.ReadLine();
 
-            Program program = new Program();
-            program.CheckInputNumber(inputNumber);
+            CheckInputNumber(inputNumber);
+
+            return inputNumber;
         }
 
-        public void CheckInputNumber(string inputNumber)
+        public static void CheckInputNumber(string inputNumber)
         {
             if (string.IsNullOrEmpty(inputNumber) || string.IsNullOrWhiteSpace(inputNumber))
             {
                 Console.WriteLine("Boş giriş yapamazsınız. Lütfen bir sayı giriniz.");
-                Program.GetInputText();
+                GetInputText();
             }
             else if (!CheckInputNumberForDigits(inputNumber))
             {
                 Console.WriteLine("Sayı harici karakter giremezsiniz. Lütfen bir sayı giriniz...");
-                Program.GetInputText();
+                GetInputText();
             }
             else
             {
@@ -36,7 +46,7 @@ namespace NumberToTextProject
             }
         }
 
-        public bool CheckInputNumberForDigits(string inputNumber)
+        public static bool CheckInputNumberForDigits(string inputNumber)
         {
             int counter = 0;
             foreach (var chr in inputNumber)
