@@ -16,11 +16,11 @@ namespace NumberToTextProject
         {
         }
 
-        public char[] WriteInputNumberToConsole(string threeDigit)
+        public char[] WriteInputNumberToConsole(char[] threeDigit)
         {
-            var threeDigitChar = threeDigit.ToCharArray();
+            var threeDigitChar = threeDigit;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 2; i < 3 - threeDigitChar.Length; i--)
             {
                 variables.MainDigits[i] = threeDigitChar[i];
             }
@@ -30,17 +30,22 @@ namespace NumberToTextProject
 
         public string MatchDigitsToWriteConsole(char[] threeDigitChar)
         {
-            if (variables.OneToNineDigit.ContainsKey(threeDigitChar[2]) || char.IsDigit(threeDigitChar[2]))
+            for (int i = 2; i >= (3 - threeDigitChar.Length); i--)
             {
-                variables.finalTextForConsole += variables.OneHunderedToNineHunderedDigit[threeDigitChar[0]];
+                variables.MainDigits[i] = threeDigitChar[i - (3 - threeDigitChar.Length)];
             }
-            if (variables.OneToNineDigit.ContainsKey(threeDigitChar[1]))
+
+            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[0]))
             {
-                variables.finalTextForConsole += variables.TenToNinetyDigit[threeDigitChar[1]];
+                variables.finalTextForConsole += variables.OneHunderedToNineHunderedDigit[variables.MainDigits[0]];
             }
-            if (variables.OneToNineDigit.ContainsKey(threeDigitChar[0]))
+            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[1]))
             {
-                variables.finalTextForConsole += variables.OneToNineDigit[threeDigitChar[2]];
+                variables.finalTextForConsole += variables.TenToNinetyDigit[variables.MainDigits[1]];
+            }
+            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[2]))
+            {
+                variables.finalTextForConsole += variables.OneToNineDigit[variables.MainDigits[2]];
             }
 
             //Console.WriteLine(variables.finalTextForConsole);
