@@ -4,14 +4,14 @@ namespace NumberToTextProject
 {
     public static class Program
     {
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var inputNumber = GetInputText();
             NumberToText numberToText = new NumberToText();
-
-            char[] threeChar = inputNumber.ToCharArray();
-            var finalText = numberToText.MatchDigitsToWriteConsole(threeChar);
-            Console.WriteLine("{0}", finalText);
+            numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
+            //char[] threeChar = numberToText.SetupThreeDigit(inputNumber.ToCharArray());
+            //var finalText = numberToText.MatchDigitsToWriteConsole(threeChar);
+            //.WriteLine("{0}", finalText);
             GetInputText();
             Console.ReadLine();
         }

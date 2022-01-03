@@ -6,10 +6,12 @@ namespace NumberToTextProject
 {
     public class Variables
     {
-        public List<string> DigitsInInputNumber = new List<string> { "Bir", "Bin", "Milyon", "Milyar", "Trilyon", "Katrilyon" };
+        public string[] DigitsInInputNumber = new string[] { "", "Bin", "Milyon", "Milyar", "Trilyon", "Katrilyon" };
         public IDictionary<string, int> MainDigitsForConverter = new Dictionary<string, int> { { "Birler", 0 }, { "Onlar", 0 }, { "Yüzler", 0 } };
         public char[] MainDigits = new char[] { '0', '0', '0' };
-        public string finalTextForConsole;
+        public string threeDigitTextVersion;
+        public string finalTextForConsoler;
+        public int[][] totalDigitsInNumber;
 
         public IDictionary<char, string> OneToNineDigit = new Dictionary<char, string> { { '1', "Bir" }, { '2', "İki" }, { '3', "Üç" }, { '4', "Dört" }, { '5', "Beş" }, { '6', "Altı" }, { '7', "Yedi" }, { '8', "Sekiz" }, { '9', "Dokuz" } };
 
