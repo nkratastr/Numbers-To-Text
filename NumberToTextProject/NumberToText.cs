@@ -8,15 +8,8 @@ namespace NumberToTextProject
     {
         private Variables variables = new Variables();
 
-        public void BuildAllDigitsInNumber()
+        public void CreateTextFromInputNumber(string inputNumber)
         {
-            for (int i = variables.digitsOrderedByAscending.Length; i > 0; i--)
-            {
-                if (!(variables.digitsOrderedByAscending[i - 1] == null || variables.digitsOrderedByAscending[i - 1] == ""))
-                {
-                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumber[i - 1]);
-                }
-            }
         }
 
         public void ParseInputNumberThreeDigitGroup(string inputNumber)

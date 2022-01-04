@@ -8,8 +8,10 @@ namespace NumberToTextProject
         {
             var inputNumber = GetInputText();
             NumberToText numberToText = new NumberToText();
-            numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
-            numberToText.BuildAllDigitsInNumber();
+
+            char[] threeChar = inputNumber.ToCharArray();
+            var finalText = numberToText.MatchDigitsToWriteConsole(threeChar);
+            Console.WriteLine("{0}", finalText);
             GetInputText();
             Console.ReadLine();
         }
