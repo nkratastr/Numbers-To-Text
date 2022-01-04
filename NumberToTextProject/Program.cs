@@ -9,9 +9,8 @@ namespace NumberToTextProject
             var inputNumber = GetInputText();
             NumberToText numberToText = new NumberToText();
 
-            char[] threeChar = inputNumber.ToCharArray();
-            var finalText = numberToText.MatchDigitsToWriteConsole(threeChar);
-            Console.WriteLine("{0}", finalText);
+            numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
+            numberToText.BuildAllDigitsInNumber();
             GetInputText();
             Console.ReadLine();
         }
