@@ -6,13 +6,17 @@ namespace NumberToTextProject
     {
         public static void Main(string[] args)
         {
-            var inputNumber = GetInputText();
-            NumberToText numberToText = new NumberToText();
+            string checkForExit = "";
 
-            numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
-            numberToText.BuildAllDigitsInNumber();
-            GetInputText();
-            Console.ReadLine();
+            while (checkForExit != "Exit")
+            {
+                NumberToText numberToText = new NumberToText();
+                Console.WriteLine("\n\n-Metne dönüştürmek istediğiniz bir sayı giriniz. Çıkmak için Exit yazınız.");
+                var inputNumber = GetInputText();
+                numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
+                numberToText.BuildAllDigitsInNumber();
+                checkForExit = inputNumber;
+            }
         }
 
         private static string GetInputText()
@@ -29,17 +33,19 @@ namespace NumberToTextProject
         {
             if (string.IsNullOrEmpty(inputNumber) || string.IsNullOrWhiteSpace(inputNumber))
             {
-                Console.WriteLine("Boş giriş yapamazsınız. Lütfen bir sayı giriniz.");
-                GetInputText();
+                Console.WriteLine("-Boş giriş yapamazsınız. Lütfen bir sayı giriniz.");
             }
             else if (!CheckInputNumberForDigits(inputNumber))
             {
-                Console.WriteLine("Sayı harici karakter giremezsiniz. Lütfen bir sayı giriniz...");
-                GetInputText();
+                Console.WriteLine("-Sayı harici karakter giremezsiniz. Lütfen bir sayı giriniz...");
+            }
+            else if (inputNumber.Length > 36)
+            {
+                Console.WriteLine("-Daha küçük bir sayı giriniz. 36 basamağa kadar desteklenmektedir.");
             }
             else
             {
-                Console.WriteLine("Girdiğiniz sayı: {0}", inputNumber);
+                Console.WriteLine("-Girdiğiniz sayı: {0}", inputNumber);
             }
         }
 
