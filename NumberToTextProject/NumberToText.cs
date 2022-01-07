@@ -21,17 +21,17 @@ namespace NumberToTextProject
 
         public void ParseInputNumberThreeDigitGroup(string inputNumber)
         {
-            var inputNumberParsered = inputNumber;
+            //var inputNumberParsered = inputNumber;
             string parseredThreeDigit;
 
             int digitNumber = 0;
             string threeDigitText;
 
-            for (int i = inputNumberParsered.Length; i > 0; i = i - 3)
+            for (int i = inputNumber.Length; i > 0; i = i - 3)
             {
                 if (i - 3 < 0)
                 {
-                    parseredThreeDigit = inputNumberParsered.Substring(0, i);
+                    parseredThreeDigit = inputNumber.Substring(0, i);
                     SetupThreeDigit(parseredThreeDigit.ToCharArray());
                     threeDigitText = MatchDigitsToWriteConsole(parseredThreeDigit.ToCharArray());
 
@@ -39,7 +39,7 @@ namespace NumberToTextProject
 
                     break;
                 }
-                parseredThreeDigit = inputNumberParsered.Substring(i - 3, 3);
+                parseredThreeDigit = inputNumber.Substring(i - 3, 3);
                 SetupThreeDigit(parseredThreeDigit.ToCharArray());
                 threeDigitText = MatchDigitsToWriteConsole(variables.MainDigits);
 
@@ -53,11 +53,11 @@ namespace NumberToTextProject
 
         public char[] SetupThreeDigit(char[] threeDigit)
         {
-            var threeDigitChar = threeDigit;
+            //var threeDigitChar = threeDigit;
 
-            for (int i = 2; i >= (3 - threeDigitChar.Length); i--)
+            for (int i = 2; i >= (3 - threeDigit.Length); i--)
             {
-                variables.MainDigits[i] = threeDigitChar[i - (3 - threeDigitChar.Length)];
+                variables.MainDigits[i] = threeDigit[i - (3 - threeDigit.Length)];
             }
 
             return variables.MainDigits;
