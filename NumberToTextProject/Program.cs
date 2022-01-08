@@ -10,11 +10,15 @@ namespace NumberToTextProject
 
             while (checkForExit != "Exit")
             {
-                NumberToText numberToText = new NumberToText();
-                Console.WriteLine("\n\n-Metne dönüştürmek istediğiniz bir sayı giriniz. Çıkmak için Exit yazınız.");
+                INumberToText numberToText = new NumberToTextTurkish();
+                Console.WriteLine("\n\n-Metne dönüştürmek istediğiniz bir sayı giriniz. Programdan çıkmak için Exit yazınız.");
                 var inputNumber = GetInputText();
-                numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
-                numberToText.BuildAllDigitsInNumber();
+                if (inputNumber != "CheckFailed" || inputNumber != "Exit")
+                {
+                    numberToText.ParseInputNumberThreeDigitGroup(inputNumber);
+                    numberToText.BuildAllDigitsInNumber();
+                }
+
                 checkForExit = inputNumber;
             }
         }
@@ -23,33 +27,42 @@ namespace NumberToTextProject
         {
             string inputNumber = "";
             inputNumber = Console.ReadLine();
+            var checkResult = CheckInputNumber(inputNumber);
 
-            CheckInputNumber(inputNumber);
-
+            if (!checkResult)
+            {
+                inputNumber = "CheckFailed";
+            }
             return inputNumber;
         }
 
-        public static void CheckInputNumber(string inputNumber)
+        public static bool CheckInputNumber(string inputNumber)
         {
+            bool inputNumberCheckResult = true;
             if (string.IsNullOrEmpty(inputNumber) || string.IsNullOrWhiteSpace(inputNumber))
             {
                 Console.WriteLine("-Boş giriş yapamazsınız. Lütfen bir sayı giriniz.");
+                inputNumberCheckResult = false;
             }
-            else if (!CheckInputNumberForDigits(inputNumber))
+            else if (!CheckInputNumberIsNumber(inputNumber))
             {
                 Console.WriteLine("-Sayı harici karakter giremezsiniz. Lütfen bir sayı giriniz...");
+                inputNumberCheckResult = false;
             }
             else if (inputNumber.Length > 36)
             {
                 Console.WriteLine("-Daha küçük bir sayı giriniz. 36 basamağa kadar desteklenmektedir.");
+                inputNumberCheckResult = false;
             }
             else
             {
                 Console.WriteLine("-Girdiğiniz sayı: {0}", inputNumber);
             }
+
+            return inputNumberCheckResult;
         }
 
-        public static bool CheckInputNumberForDigits(string inputNumber)
+        public static bool CheckInputNumberIsNumber(string inputNumber)
         {
             int counter = 0;
             foreach (var chr in inputNumber)
@@ -59,7 +72,10 @@ namespace NumberToTextProject
                     counter++;
                 }
             }
-
+            if (inputNumber == "Exit")
+            {
+                counter = 0;
+            }
             return counter.Equals(0);
         }
     }

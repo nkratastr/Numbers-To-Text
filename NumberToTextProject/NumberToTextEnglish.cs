@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NumberToTextProject
 {
-    public class NumberToText
+    public class NumberToTextEnglish : INumberToText
     {
         private Variables variables = new Variables();
 
@@ -14,14 +14,13 @@ namespace NumberToTextProject
             {
                 if (!(variables.digitsOrderedByAscending[i - 1] == null || variables.digitsOrderedByAscending[i - 1] == ""))
                 {
-                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumber[i - 1]);
+                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberEnglish[i - 1]);
                 }
             }
         }
 
         public void ParseInputNumberThreeDigitGroup(string inputNumber)
         {
-            //var inputNumberParsered = inputNumber;
             string parseredThreeDigit;
 
             int digitNumber = 0;
@@ -53,8 +52,6 @@ namespace NumberToTextProject
 
         public char[] SetupThreeDigit(char[] threeDigit)
         {
-            //var threeDigitChar = threeDigit;
-
             for (int i = 2; i >= (3 - threeDigit.Length); i--)
             {
                 variables.MainDigits[i] = threeDigit[i - (3 - threeDigit.Length)];
@@ -67,17 +64,21 @@ namespace NumberToTextProject
         {
             variables.threeDigitTextVersion = "";
 
-            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[0]))
+            if (variables.OneToNineDigitEnglish.ContainsKey(variables.MainDigits[0]))
             {
-                variables.threeDigitTextVersion += variables.OneHunderedToNineHunderedDigit[variables.MainDigits[0]];
+                variables.threeDigitTextVersion += variables.OneHunderedToNineHunderedDigitEnglish[variables.MainDigits[0]];
             }
-            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[1]))
+            if (variables.OneToNineDigitEnglish.ContainsKey(variables.MainDigits[1]))
             {
-                variables.threeDigitTextVersion += variables.TenToNinetyDigit[variables.MainDigits[1]];
+                variables.threeDigitTextVersion += variables.TenToNinetyDigitEnglish[variables.MainDigits[1]];
             }
-            if (variables.OneToNineDigit.ContainsKey(variables.MainDigits[2]))
+            if (variables.MainDigits[1] == '1')
             {
-                variables.threeDigitTextVersion += variables.OneToNineDigit[variables.MainDigits[2]];
+                variables.threeDigitTextVersion += variables.TeensEnglish[variables.MainDigits[2]];
+            }
+            if (variables.OneToNineDigitEnglish.ContainsKey(variables.MainDigits[2]) && variables.MainDigits[1] != '1')
+            {
+                variables.threeDigitTextVersion += variables.OneToNineDigitEnglish[variables.MainDigits[2]];
             }
 
             variables.MainDigits[0] = '0';
