@@ -10,7 +10,7 @@ namespace NumberToTextProject
 
             while (checkForExit != "Exit")
             {
-                INumberToText numberToText = new NumberToTextTurkish();
+                INumberToText numberToText = new NumberToTextEnglish();
                 Console.WriteLine("\n\n-Metne dönüştürmek istediğiniz bir sayı giriniz. Programdan çıkmak için Exit yazınız.");
                 var inputNumber = GetInputText();
                 if (inputNumber != "CheckFailed" || inputNumber != "Exit")
