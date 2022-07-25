@@ -14,13 +14,13 @@ namespace NumberToTextProject
             {
                 if (!(variables.digitsOrderedByAscending[i - 1] == null || variables.digitsOrderedByAscending[i - 1] == ""))
                 {
-                    if (variables.digitsOrderedByAscending[i - 1] == "Bir" && variables.DigitsInInputNumber[i - 1] == "Bin")
+                    if (variables.digitsOrderedByAscending[i - 1] == "Bir" && variables.DigitsInInputNumberTurkish[i - 1] == "Bin")
                     {
-                        Console.Write(variables.DigitsInInputNumber[i - 1]);
+                        Console.Write(variables.DigitsInInputNumberTurkish[i - 1]);
                     }
                     else
                     {
-                        Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumber[i - 1]);
+                        Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberTurkish[i - 1]);
                     }
                 }
             }

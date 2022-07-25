@@ -14,7 +14,7 @@ namespace NumberToTextProject
             {
                 if (!(variables.digitsOrderedByAscending[i - 1] == null || variables.digitsOrderedByAscending[i - 1] == ""))
                 {
-                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberEnglish[i - 1]);
+                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberDutch[i - 1]);
                 }
             }
         }
