@@ -14,7 +14,17 @@ namespace NumberToTextProject
             {
                 if (!(variables.digitsOrderedByAscending[i - 1] == null || variables.digitsOrderedByAscending[i - 1] == ""))
                 {
-                    Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberDutch[i - 1]);
+
+                    if (variables.digitsOrderedByAscending[i - 1] == "Een" && variables.DigitsInInputNumberDutch[i - 1] == "Duizend")
+                    {
+                        Console.Write(variables.DigitsInInputNumberDutch[i - 1]);
+                    }
+                    else
+                    {
+                        Console.Write(variables.digitsOrderedByAscending[i - 1] + variables.DigitsInInputNumberDutch[i - 1]);
+                    }
+
+                   
                 }
             }
         }
@@ -70,10 +80,10 @@ namespace NumberToTextProject
                 variables.threeDigitTextVersion += variables.OneHunderedToNineHunderedDigitInDutch[variables.MainDigits[0]];
             }
 
-            if (variables.OneToNineDigitDutch.ContainsKey(variables.MainDigits[2]) && variables.MainDigits[1]!='1') 
+            if (variables.OneToNineDigitDutch.ContainsKey(variables.MainDigits[2]) && variables.MainDigits[1] != '1' && variables.MainDigits[1] != '0' ) 
             {
                 variables.threeDigitTextVersion += variables.OneToNineDigitDutch[variables.MainDigits[2]] + "en";
-                variables.checkUseOfEnInDutch = true;
+                
             }
 
             if (variables.OneToNineDigitDutch.ContainsKey(variables.MainDigits[1]) && variables.MainDigits[1] > 1)
@@ -81,10 +91,10 @@ namespace NumberToTextProject
                 variables.threeDigitTextVersion += variables.TenToNinetyDigitDutch[variables.MainDigits[1]];
             }
 
-            if (variables.OneToNineDigitDutch.ContainsKey(variables.MainDigits[2]) && variables.MainDigits[1] != '1' && variables.MainDigits[1] != '0' && variables.checkUseOfEnInDutch == false) //&& variables.MainDigits[1] != '1'
+            if (variables.OneToNineDigitDutch.ContainsKey(variables.MainDigits[2]) && variables.MainDigits[1] != '1'  && variables.MainDigits[1]=='0') 
             {
                 variables.threeDigitTextVersion += variables.OneToNineDigitDutch[variables.MainDigits[2]];
-                variables.checkUseOfEnInDutch = false;
+                
             }
 
             if (variables.MainDigits[1] == '1')

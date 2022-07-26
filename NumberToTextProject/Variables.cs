@@ -9,7 +9,7 @@ namespace NumberToTextProject
         public char[] MainDigits = new char[] { '0', '0', '0' };
         public string threeDigitTextVersion;
         public string[] digitsOrderedByAscending = new string[12];
-        public bool checkUseOfEnInDutch=false;
+        
 
         public string[] DigitsInInputNumberTurkish = new string[] { "", "Bin", "Milyon", "Milyar", "Trilyon", "Katrilyon", "Kentilyon", "Seksilyon", "Septilyon", "Oktilyon", "Nobilyon", "Desilyon" };
         public IDictionary<char, string> OneToNineDigitTurkish = new Dictionary<char, string> { { '1', "Bir" }, { '2', "İki" }, { '3', "Üç" }, { '4', "Dört" }, { '5', "Beş" }, { '6', "Altı" }, { '7', "Yedi" }, { '8', "Sekiz" }, { '9', "Dokuz" } };
@@ -22,7 +22,8 @@ namespace NumberToTextProject
         public IDictionary<char, string> TenToNinetyDigitEnglish = new Dictionary<char, string> { { '1', "" }, { '2', "Twenty" }, { '3', "Thirty" }, { '4', "Forty" }, { '5', "Fifty" }, { '6', "Sixty" }, { '7', "Seventy" }, { '8', "Eighty" }, { '9', "Ninety" } };
         public IDictionary<char, string> OneHunderedToNineHunderedDigitEnglish = new Dictionary<char, string> { { '1', "OneHundred" }, { '2', "TwoHundred" }, { '3', "ThreeHundred" }, { '4', "FourHundred" }, { '5', "FiveHundred" }, { '6', "SixHundred" }, { '7', "SevenHundred" }, { '8', "EightHundred" }, { '9', "NineHundred" } };
 
-        public string[] DigitsInInputNumberDutch = new string[] { "", "Duizend", "Miljoen", "Miljard", "Triljoen", "Quadriljoen", "Quintiljoen", "Sextiljoen", "Septiljoen", "Octiljoen", "Nobiljoen", "Deciljoen" };
+        //public bool checkUseOfEnInDutch = false;
+        public string[] DigitsInInputNumberDutch = new string[] { "", "Duizend", "Miljoen", "Miljard", "Triljoen", "Quadriljoen", "Quintiljoen", "Secstiljoen", "Septiljoen", "Octiljoen", "Nobiljoen", "Deciljoen" };
         public IDictionary<char, string> OneToNineDigitDutch = new Dictionary<char, string> { { '1', "Een" }, { '2', "Twee" }, { '3', "Drie" }, { '4', "Vier" }, { '5', "Vijf" }, { '6', "Zes" }, { '7', "Zeven" }, { '8', "Acht" }, { '9', "Negen" } };
         public IDictionary<char, string> TeensDutch = new Dictionary<char, string> { { '0', "Tien" }, { '1', "Elf" }, { '2', "Twaalf" }, { '3', "Dertien" }, { '4', "Veerteen" }, { '5', "Vijfteen" }, { '6', "Zesteen" }, { '7', "Zeventeen" }, { '8', "Achteen" }, { '9', "Negenteen" } };
         public IDictionary<char, string> TenToNinetyDigitDutch = new Dictionary<char, string> { { '1', "" }, { '2', "Twintig" }, { '3', "Dirtig" }, { '4', "Viertig" }, { '5', "Vijftig" }, { '6', "Zestig" }, { '7', "Zeventig" }, { '8', "Tachtig" }, { '9', "Negentig" } };
